@@ -1,0 +1,262 @@
+mysql> 
+mysql> 
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databasess;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databasess' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| advanced           |
+| cdcol              |
+| conveniencestore   |
+| csd2204w18         |
+| internship_portal  |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| webauth            |
++--------------------+
+11 rows in set (0.03 sec)
+
+mysql> use csd2204w18;
+Database changed
+mysql> create view d10
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create view d10_v1 select * from products;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from products' at line 1
+mysql> create view d10_v1 select * AS select * from products;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * AS select * from products' at line 1
+mysql> 
+mysql> 
+mysql> create view d10_v1 AS select * from products;
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_csd2204w18 |
++----------------------+
+| c1                   |
+| citymaster           |
+| countries            |
+| customers            |
+| d10_v1               |
+| departments          |
+| employees            |
+| j3                   |
+| job_history          |
+| jobs                 |
+| locations            |
+| manu                 |
+| p1                   |
+| persons              |
+| pet                  |
+| products             |
+| regions              |
++----------------------+
+17 rows in set (0.00 sec)
+
+mysql> select * from d10_v1;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.02 sec)
+
+mysql> select * from d10_v1 where id>6;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> select * from d10_v1 where code>=6;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+8 rows in set (0.00 sec)
+
+mysql> select Name,Price from d10_v1 where manufaturer between 2 AND 5;
+ERROR 1054 (42S22): Unknown column 'manufaturer' in 'where clause'
+mysql> select Name,Price from d10_v1 where manufacturer between 2 AND 5;
++-----------------+-------+
+| Name            | Price |
++-----------------+-------+
+| Hard drive      |   240 |
+| ZIP drive       |   150 |
+| DVD drive       |   180 |
+| CD drive        |    90 |
+| Printer         |   270 |
+| Toner cartridge |    66 |
+| DVD burner      |   180 |
++-----------------+-------+
+7 rows in set (0.03 sec)
+
+mysql> insert into d10_v1(code,name,price,manufacturer) values(14,'Mouse',100,5); 
+Query OK, 1 row affected (0.16 sec)
+
+mysql> 
+mysql> select * from d10_v1;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
+|   14 | Mouse           |   100 |            5 |
++------+-----------------+-------+--------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
+|   14 | Mouse           |   100 |            5 |
++------+-----------------+-------+--------------+
+14 rows in set (0.00 sec)
+
+mysql> delete from d10_v1 where code=14;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from d10_v1;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.02 sec)
+
+mysql> create view d10__v8 as select prroducts.code, prroducts.name "product", manu.name "manufecturer" from manu inner join products on products.ode = manu.code;
+ERROR 1054 (42S22): Unknown column 'prroducts.code' in 'field list'
+mysql> create view d10__v8 as select products.code, prroducts.name "product", manu.name "manufecturer" from manu inner join products on products.ode = manu.code;
+ERROR 1054 (42S22): Unknown column 'prroducts.name' in 'field list'
+mysql> create view d10__v8 as select products.code, products.name "product", manu.name "manufecturer" from manu inner join products on products.ode = manu.code;
+ERROR 1054 (42S22): Unknown column 'products.ode' in 'on clause'
+mysql> create view d10_v8 as select products.code, products.name "product", manu.name "manufecturer" from manu inner join products on products.code = manu.code;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from d10_v8;
++------+-----------------+-------------------+
+| code | product         | manufecturer      |
++------+-----------------+-------------------+
+|    1 | Hard drive      | Sony              |
+|    2 | Memory          | Creative Labs     |
+|    3 | ZIP drive       | Hewlett-Packard   |
+|    4 | Floppy disk     | Iomega            |
+|    5 | Monitor         | Fujitsu           |
+|    6 | DVD drive       | Winchester        |
+|    7 | CD drive        | moxDroid Labs Inc |
+|    8 | Printer         | Dell              |
+|    9 | Toner cartridge | Bell Labs         |
++------+-----------------+-------------------+
+9 rows in set (0.00 sec)
+
+mysql> insert into d10_v8(code,product,manufacturer) values(10,'Mouse',Jack); 
+ERROR 1054 (42S22): Unknown column 'Jack' in 'field list'
+mysql> insert into d10_v8(code,product,manufacturer) values(10,'Mouse','Jack'); 
+ERROR 1054 (42S22): Unknown column 'manufacturer' in 'field list'
+mysql> insert into d10_v8(code,product,manufecturer) values(10,'Mouse','Jack'); 
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'csd2204w18.d10_v8'
+mysql> 
+mysql> update d10_v8 set product='keyboard' where id=9;;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+ERROR: 
+No query specified
+
+mysql> update d10_v8 set product='keyboard' where id=9;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> update d10_v8 set product='keyboard' where code=9;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> create or replace view v_today(now) as select now();
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from v_today;
++---------------------+
+| now                 |
++---------------------+
+| 2018-01-19 08:49:17 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> drop view if exists v_today;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
