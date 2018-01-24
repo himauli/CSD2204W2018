@@ -1,0 +1,528 @@
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [(none)]> CREATE OR REPLACE TABLE EMP_DETAILS(
+    -> EMPLOYEE_ID INTEGER(6) PRIMARY KEY,
+    -> FIRST_NAME VARCHAR(20),
+    -> LAST_NAME VARCHAR(25) NOT NULL,
+    -> EMAIL VARCHAR(25) NOT NULL,
+    -> PHONE_NUMBER VARCHAR(20),
+    -> HIRE_DATE DATE,
+    -> JOB_ID VARCHAR(10) NOT NULL,
+    -> SALARY REAL(8,2),
+    -> COMMISSION_PCT REAL(2,2));
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(100,'STEVEN','KING','STEVEN.KING@GMAIL.COM','2345678','1998-01-14','AD_PRES',24000.0,0.10);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(101,'NEENA','KOCHHAR','NEENA.KOCHHAR@GMAIL.COM','2345678','2002-10-10','AD_VP',17000.0,0.50);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(102,'LEX','DE HANN','LEX.HANN@GMAIL.COM','2345678','1995-10-20','AD_VP',17000.0,0.50);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(103,'ALEXANDER','HUNOLD','ALEXANDER.HUNOLD@GMAIL.COM','2345678','2002-11-23','IT_PROG',9000.0,0.25);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(104,'BRUCE','ERNST','BRUCE.ERNST@GMAIL.COM','2345678','2003-08-24','IT_PROG',6000.0,0.25);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO EMP_DETAILS VALUES(105,'DAVID','AUSTIN','DAVID.AUSTIN@GMAIL.COM','2345678','2005-04-10','IT_PROG',4800.0,0.25);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS(
+    ->     EMPLOYEE_ID INTEGER(6),
+    ->     SALARY DOUBLE(8,2),
+    ->     EDTTIME DATETIME);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS_UPDATE(
+    ->     USER VARCHAR(50),
+    ->     DESCRIPTION VARCHAR(100),
+    ->     UDTTIME DATETIME);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> CREATE OR REPLACE TABLE STUD_MARKS(
+    ->     STUDENT_ID INTEGER(3) PRIMARY KEY,
+    ->     NAME VARCHAR(40) NOT NULL,
+    ->     SUB1 DOUBLE(4,2),
+    ->     SUB2 DOUBLE(4,2),
+    ->     SUB3 DOUBLE(4,2),
+    ->     SUB4 DOUBLE(4,2),
+    ->     SUB5 DOUBLE(4,2),
+    ->     TOTAL DOUBLE(5,2),
+    ->     PERCENTAGE DOUBLE(4,2),
+    ->     GRADE VARCHAR(20));
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(1,'ALEX');
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(2,'BOB');
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(3,'CHARLEY');
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(4,'DONNA');
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> CREATE TABLE price_logs ( 
+    ->     id INT(11) PRIMARY KEY AUTO_INCREMENT, 
+    ->     product_code INT(3) NOT NULL, 
+    ->     price DECIMAL(10) NOT NULL);
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]>     
+MariaDB [(none)]> CREATE TABLE user_change_logs (
+    ->   id int(11) NOT NULL AUTO_INCREMENT,
+    ->   product_code INT(3) DEFAULT NULL,
+    ->   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ->   updated_by varchar(30) NOT NULL,
+    ->   PRIMARY KEY (id));
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| csd2204w18         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [(none)]> use csd2204w18;
+Database changed
+MariaDB [csd2204w18]> CREATE OR REPLACE TABLE EMP_DETAILS(
+    -> EMPLOYEE_ID INTEGER(6) PRIMARY KEY,
+    -> FIRST_NAME VARCHAR(20),
+    -> LAST_NAME VARCHAR(25) NOT NULL,
+    -> EMAIL VARCHAR(25) NOT NULL,
+    -> PHONE_NUMBER VARCHAR(20),
+    -> HIRE_DATE DATE,
+    -> JOB_ID VARCHAR(10) NOT NULL,
+    -> SALARY REAL(8,2),
+    -> COMMISSION_PCT REAL(2,2));
+Query OK, 0 rows affected (0.36 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(100,'STEVEN','KING','STEVEN.KING@GMAIL.COM','2345678','1998-01-14','AD_PRES',24000.0,0.10);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(101,'NEENA','KOCHHAR','NEENA.KOCHHAR@GMAIL.COM','2345678','2002-10-10','AD_VP',17000.0,0.50);
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(102,'LEX','DE HANN','LEX.HANN@GMAIL.COM','2345678','1995-10-20','AD_VP',17000.0,0.50);
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(103,'ALEXANDER','HUNOLD','ALEXANDER.HUNOLD@GMAIL.COM','2345678','2002-11-23','IT_PROG',9000.0,0.25);
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(104,'BRUCE','ERNST','BRUCE.ERNST@GMAIL.COM','2345678','2003-08-24','IT_PROG',6000.0,0.25);
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [csd2204w18]> INSERT INTO EMP_DETAILS VALUES(105,'DAVID','AUSTIN','DAVID.AUSTIN@GMAIL.COM','2345678','2005-04-10','IT_PROG',4800.0,0.25);
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS(
+    ->     EMPLOYEE_ID INTEGER(6),
+    ->     SALARY DOUBLE(8,2),
+    ->     EDTTIME DATETIME);
+Query OK, 0 rows affected (0.45 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS_UPDATE(
+    ->     USER VARCHAR(50),
+    ->     DESCRIPTION VARCHAR(100),
+    ->     UDTTIME DATETIME);
+Query OK, 0 rows affected (0.50 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE OR REPLACE TABLE STUD_MARKS(
+    ->     STUDENT_ID INTEGER(3) PRIMARY KEY,
+    ->     NAME VARCHAR(40) NOT NULL,
+    ->     SUB1 DOUBLE(4,2),
+    ->     SUB2 DOUBLE(4,2),
+    ->     SUB3 DOUBLE(4,2),
+    ->     SUB4 DOUBLE(4,2),
+    ->     SUB5 DOUBLE(4,2),
+    ->     TOTAL DOUBLE(5,2),
+    ->     PERCENTAGE DOUBLE(4,2),
+    ->     GRADE VARCHAR(20));
+Query OK, 0 rows affected (0.25 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(1,'ALEX');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(2,'BOB');
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [csd2204w18]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(3,'CHARLEY');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(4,'DONNA');
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE price_logs ( 
+    ->     id INT(11) PRIMARY KEY AUTO_INCREMENT, 
+    ->     product_code INT(3) NOT NULL, 
+    ->     price DECIMAL(10) NOT NULL);
+Query OK, 0 rows affected (4.58 sec)
+
+MariaDB [csd2204w18]>     
+MariaDB [csd2204w18]> CREATE TABLE user_change_logs (
+    ->   id int(11) NOT NULL AUTO_INCREMENT,
+    ->   product_code INT(3) DEFAULT NULL,
+    ->   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ->   updated_by varchar(30) NOT NULL,
+    ->   PRIMARY KEY (id));
+Query OK, 0 rows affected (1.80 sec)
+
+MariaDB [csd2204w18]> CREATE TRIGGER ins_sum
+    -> BEFORE INSERT ON account
+    -> FOR EACH ROW SET @sum = @sum + NEW.amount;
+ERROR 1146 (42S02): Table 'csd2204w18.account' doesn't exist
+MariaDB [csd2204w18]> CREATE TRIGGER ins_sum
+    -> BEFORE INSERT ON number
+    -> FOR EACH ROW SET @sum = NEW.n1;
+Query OK, 0 rows affected (0.09 sec)
+
+MariaDB [csd2204w18]> select @sum;
++------+
+| @sum |
++------+
+| NULL |
++------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from number;
++-------+
+| n1    |
++-------+
+|  0.48 |
+|  0.01 |
+|  0.60 |
+| 10.60 |
+|  0.99 |
+|  0.12 |
+|  0.62 |
++-------+
+7 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> CREATE
+    -> TRIGGER `csd2204w18`.`emp_details_AINS`
+    -> AFTER INSERT ON `csd2204w18`.`emp_details`
+    -> FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,
+    -> NEW.salary, NOW());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+MariaDB [csd2204w18]> CREATE
+    -> TRIGGER `csd2204w18`.`emp_details_AINS`
+    -> AFTER INSERT ON `csd2204w18`.`emp_details`
+    -> FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,
+    -> NEW.salary, NOW())
+    -> end$$
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'end$$' at line 8
+MariaDB [csd2204w18]> CREATE
+    -> TRIGGER `csd2204w18`.`emp_details_AINS`
+    -> AFTER INSERT ON `csd2204w18`.`emp_details`
+    -> FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,
+    -> NEW.salary, NOW());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+MariaDB [csd2204w18]> CREATE
+    -> TRIGGER `csd2204w18`.`emp_details_AINS`
+    -> AFTER INSERT ON `csd2204w18`.`emp_details`
+    -> FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,
+    -> NEW.salary, NOW()); END$$
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END$$' at line 1
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.c
+    -> ode,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ode,old.price)' at line 5
+MariaDB [csd2204w18]> END$$
+    -> 
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END$$' at line 1
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.c
+    -> ode,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ode,old.price)' at line 5
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.code,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.code,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> price) VALUES(old.c
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES(old.c' at line 4
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> price) VALUES(old.code,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES(old.code,old.price)' at line 4
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> delimiter$
+    -> CREATE or REPLACE TRIGGER before_products_update
+    -> BEFORE UPDATE on Products FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.code,old.price);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiter$CREATE or REPLACE TRIGGER before_products_update
+BEFORE UPDATE on Prod' at line 1
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> create trigger trigg_cust
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchase_amount > 1000000
+    -> then
+    -> set new.mem_type = 'gold';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+MariaDB [csd2204w18]> delimiter$$
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiter$$' at line 1
+MariaDB [csd2204w18]> delimiters$
+    -> create trigger trigg_cust
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchase_amount > 1000000
+    -> then
+    -> set new.mem_type = 'gold';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiters$create trigger trigg_cust
+before update on custom
+for each row
+begin
+' at line 1
+MariaDB [csd2204w18]> create table CUSTOM(id int(5), Name varchar(10), Email varchar(25), PurchaseAmount double(10,2), MembershipType varchar(20));
+Query OK, 0 rows affected (0.25 sec)
+
+MariaDB [csd2204w18]> delimiters$
+    -> $
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiters$$' at line 1
+MariaDB [csd2204w18]> delimiters$$
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiters$$' at line 1
+MariaDB [csd2204w18]> delimiters $$
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delimiters $$' at line 1
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> delimiter $$
+MariaDB [csd2204w18]> desc custom;
+    -> $$
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| id             | int(5)       | YES  |     | NULL    |       |
+| Name           | varchar(10)  | YES  |     | NULL    |       |
+| Email          | varchar(25)  | YES  |     | NULL    |       |
+| PurchaseAmount | double(10,2) | YES  |     | NULL    |       |
+| MembershipType | varchar(20)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+MariaDB [csd2204w18]> create trigger trigg_cust
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchase_amount > 1000000
+    -> then
+    -> set new.mem_type = 'gold';
+    -> elseif new.purchase_amount >= 500000 AND new.purchase_amount < 1000000
+    -> then
+    -> set new.mem_type = 'silver';
+    -> else
+    -> set new.mem_type = 'bronze';
+    -> END if;
+    -> end$$
+ERROR 1054 (42S22): Unknown column 'purchase_amount' in 'NEW'
+MariaDB [csd2204w18]> create trigger trigg_cust
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchaseamount > 1000000
+    -> then
+    -> set new.mem_type = 'gold';
+    -> $$
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+MariaDB [csd2204w18]> create trigger trigg_cust
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchaseamount > 1000000
+    -> then
+    -> set new.membershiptype = 'gold';
+    -> elseif new.purchaseamount >= 500000 AND new.purchaseamount < 1000000
+    -> then
+    -> set new.membershiptype = 'silver';
+    -> else
+    -> set new.membershiptype = 'bronze';
+    -> end if;
+    -> end$$
+Query OK, 0 rows affected (0.11 sec)
+
+MariaDB [csd2204w18]> insert into custom
+    -> values
+    -> (1,'Himauli','himauli@gmail.com',1000000,'gold')$$
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [csd2204w18]> insert into custom
+    -> value(2,'Foram','foram@gmail.com',510000,'silver')$$
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [csd2204w18]> insert into custom
+    -> value(3,'Harsh','harsh@gmail.com',1000,'bronze')$$
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [csd2204w18]> select * from custom;
+    -> $$
++------+---------+-------------------+----------------+----------------+
+| id   | Name    | Email             | PurchaseAmount | MembershipType |
++------+---------+-------------------+----------------+----------------+
+|    1 | Himauli | himauli@gmail.com |     1000000.00 | gold           |
+|    2 | Foram   | foram@gmail.com   |      510000.00 | silver         |
+|    3 | Harsh   | harsh@gmail.com   |        1000.00 | bronze         |
++------+---------+-------------------+----------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> create or replace trigger `trigg_cust`
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchaseamount > 1000000
+    -> then
+    -> set new.membershiptype = 'gold';
+    -> elseif new.purchaseamount >= 500000 AND new.purchaseamount < 1000000
+    -> then
+    -> set new.membershiptype = 'silver';
+    -> else
+    -> set new.membershiptype = 'bronze';
+    -> else 
+    -> set new.membershiptype = 'old.membershiptype';
+    -> end if;
+    -> end$$
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'else 
+set new.membershiptype = 'old.membershiptype';
+end if;
+end' at line 13
+MariaDB [csd2204w18]> create or replace trigger `trigg_cust`
+    -> before update on custom
+    -> for each row
+    -> begin
+    -> if new.purchaseamount > 1000000
+    -> then
+    -> set new.membershiptype = 'gold';
+    -> elseif new.purchaseamount >= 500000 AND new.purchaseamount < 1000000
+    -> then
+    -> set new.membershiptype = 'silver';
+    -> elseif new.purchaseamount < 500000
+    -> then
+    -> set new.membershiptype = 'bronze';
+    -> else
+    -> set new.membershiptype = 'old.membershiptype';
+    -> end if;
+    -> end$$
+Query OK, 0 rows affected (0.23 sec)
+
+MariaDB [csd2204w18]> select * from custom;
+    -> $$
++------+---------+-------------------+----------------+----------------+
+| id   | Name    | Email             | PurchaseAmount | MembershipType |
++------+---------+-------------------+----------------+----------------+
+|    1 | Himauli | himauli@gmail.com |     1000000.00 | gold           |
+|    2 | Foram   | foram@gmail.com   |      510000.00 | silver         |
+|    3 | Harsh   | harsh@gmail.com   |        1000.00 | bronze         |
++------+---------+-------------------+----------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> update custom set purchaseamount = 60000 where id = 3;
+    -> $$
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [csd2204w18]> select * from custom;$$
++------+---------+-------------------+----------------+----------------+
+| id   | Name    | Email             | PurchaseAmount | MembershipType |
++------+---------+-------------------+----------------+----------------+
+|    1 | Himauli | himauli@gmail.com |     1000000.00 | gold           |
+|    2 | Foram   | foram@gmail.com   |      510000.00 | silver         |
+|    3 | Harsh   | harsh@gmail.com   |       60000.00 | bronze         |
++------+---------+-------------------+----------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> update custom set purchaseamount = 60000 where id = 1;
+    -> $$
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [csd2204w18]> select * from custom;$$
++------+---------+-------------------+----------------+----------------+
+| id   | Name    | Email             | PurchaseAmount | MembershipType |
++------+---------+-------------------+----------------+----------------+
+|    1 | Himauli | himauli@gmail.com |       60000.00 | bronze         |
+|    2 | Foram   | foram@gmail.com   |      510000.00 | silver         |
+|    3 | Harsh   | harsh@gmail.com   |       60000.00 | bronze         |
++------+---------+-------------------+----------------+----------------+
+3 rows in set (0.00 sec)
+
